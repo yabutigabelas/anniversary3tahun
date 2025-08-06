@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anniversary ke-3</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #fff);
+      color: #d63384;
+      text-align: center;
+      overflow-x: hidden;
+      cursor: url('https://abs.twimg.com/emoji/v2/72x72/2764.png'), auto;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+
+    .section {
+      padding: 50px 20px;
+    }
+
+    .section:nth-child(even) {
+      background-color: #fff0f5;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 30px 10px;
+      padding: 15px 30px;
+      background-color: #d63384;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ff69b4;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 8px #ffb6c1;
+    }
+
+    .content-box {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 900px;
+      box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+    }
+
+    img {
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #ffb6c1;
+      margin: 20px;
+    }
+
+    /* Hati jatuh dari atas */
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: fall 10s linear infinite;
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -15px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% { top: -10%; opacity: 1; }
+      100% { top: 110%; opacity: 0; }
+    }
+
+    /* Hati naik dari bawah */
+    .floating-heart {
+      position: absolute;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: rise 10s linear infinite;
+      z-index: 0;
+    }
+
+    .floating-heart::before,
+    .floating-heart::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .floating-heart::before {
+      top: -15px;
+      left: 0;
+    }
+
+    .floating-heart::after {
+      top: 0;
+      left: -15px;
+    }
+
+    @keyframes rise {
+      0% { bottom: -10%; opacity: 0.8; }
+      100% { bottom: 110%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Musik -->
+  <audio autoplay loop>
+    <source src="musik.mp3" type="audio/mpeg">
+    Browser tidak mendukung audio.
+  </audio>
+
+  <!-- Hati jatuh -->
+  <div class="hearts"></div>
+
+  <!-- Hati naik -->
+  <div id="floating-container"></div>
+
+  <h1>💖 Selamat Anniversary ke-3 💖</h1>
+
+  <!-- Kata puitis -->
+  <div class="content-box">
+    <h2><span id="typing"></span></h2>
+  </div>
+
+  <!-- Bagian Awal -->
+  <div class="section">
+    <div class="content-box">
+      <h2>✨ Awal Pertemuan Kita</h2>
+      <p>Semua berawal dari satu senyuman yang menumbuhkan cinta.</p>
+      <img src="foto-awal.jpg" alt="Awal Bersama">
+    </div>
+  </div>
+
+  <!-- Bagian Sekarang -->
+  <div class="section">
+    <div class="content-box">
+      <h2>💑 Saat Ini</h2>
+      <p>Bersamamu adalah hadiah terbaik. Setiap hari terasa seperti mimpi yang indah.</p>
+      <img src="foto-sekarang.jpg" alt="Saat Ini">
+    </div>
+  </div>
+
+  <!-- Bagian Masa Depan -->
+  <div class="section">
+    <div class="content-box">
+      <h2>🌈 Masa Depan</h2>
+      <p>Aku ingin menua bersamamu. Tertawa, berjuang, dan mencinta hingga akhir waktu.</p>
+      <img src="foto-masa-depan.jpg" alt="Masa Depan">
+    </div>
+  </div>
+
+  <!-- Tombol -->
+  <a href="#galeri" class="button">📸 Lihat Kenangan Kita</a>
+  <button onclick="toggleSurat()" class="button">💌 Lihat Surat Cinta</button>
+
+  <!-- Surat cinta -->
+  <div id="surat" class="content-box" style="display:none;">
+    <p>
+      Untukmu yang selalu aku cinta...  
+      Terima kasih telah menjadi pelengkap hidupku.  
+      Aku mencintaimu tanpa jeda, hari ini dan selamanya.
+    </p>
+  </div>
+
+  <!-- Galeri -->
+  <div id="galeri" class="section">
+    <div class="content-box">
+      <h2>Galeri Kenangan Kita</h2>
+      <div class="gallery">
+        <img src="galeri1.jpg" alt="Kenangan 1">
+        <img src="galeri2.jpg" alt="Kenangan 2">
+        <img src="galeri3.jpg" alt="Kenangan 3">
+        <img src="galeri4.jpg" alt="Kenangan 4">
+      </div>
+    </div>
+  </div>
+
+  <!-- Countdown -->
+  <div class="section">
+    <div class="content-box">
+      <h2>Menuju Anniversary ke-4:</h2>
+      <div id="countdown" style="font-size: 2em; font-weight: bold;"></div>
+    </div>
+  </div>
+
+  <!-- Penutup -->
+  <p style="margin: 50px 20px; font-weight: bold;">Dengan Cinta Selalu, <br/> [Nama Kamu]</p>
+
+  <!-- Script JS -->
+  <script>
+    // Hati jatuh
+    for (let i = 0; i < 50; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      heart.style.opacity = Math.random();
+      document.querySelector('.hearts').appendChild(heart);
+    }
+
+    // Hati naik
+    const container = document.getElementById("floating-container");
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (8 + Math.random() * 4) + "s";
+      heart.style.opacity = Math.random();
+      container.appendChild(heart);
+    }
+
+    // Typing effect
+    const text = "3 tahun bersamamu adalah cerita cinta terbaik dalam hidupku.";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 70);
+      }
+    }
+    type();
+
+    // Surat cinta toggle
+    function toggleSurat() {
+      const surat = document.getElementById("surat");
+      surat.style.display = surat.style.display === "none" ? "block" : "none";
+    }
+
+    // Countdown
+    const targetDate = new Date("August 6, 2026 00:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+    setInterval(function () {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+      countdown.innerHTML = `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
